@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>5fc9215d-717b-4533-8027-15823838dbae</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="Ocelot" Version="15.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Ocelot">
+      <HintPath>..\..\..\AgrregatorService\AgrregatorService\bin\Debug\netcoreapp3.1\Ocelot.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
