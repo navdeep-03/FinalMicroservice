@@ -29,7 +29,9 @@ namespace UserService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<UserDBContext>(option => option.UseSqlServer(@"Data Source=NAVDP3148186-01;Initial Catalog=UserDb;User= sa;Password=Struggle@123"));
+			var connection=@"Server=db;Database= UserDb;User ID= sa;Password=Struggle@123";
+			services.AddDbContext<UserDBContext>(option => option.UseSqlServer(connection));
+           // services.AddDbContext<UserDBContext>(option => option.UseSqlServer(@"Data Source=db;Initial Catalog=UserDb;User= sa;Password=Struggle@123"));
             services.AddScoped<IUser, UserRepository>();
         }
 

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userimg-deploy
+  labels:
+    app: userimg-deploy
+spec:
+  replicas: 1
+  minReadySeconds: 1
+  selector:
+    matchLabels:
+      app: userimg-pod
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+        maxUnavailable: 1
+        maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: userimg-pod
+    spec:
+      containers:
+      - name: userimg-ctr
+        image: gcr.io/microservices-277811/userimg:v1
+        ports:
+        - containerPort: 80

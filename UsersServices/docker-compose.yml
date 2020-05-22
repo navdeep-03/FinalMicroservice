@@ -1,0 +1,16 @@
+version: "3"
+services:
+    db:
+        image: "mcr.microsoft.com/mssql/server:2017-latest"
+        ports:
+            - "1401:1433"
+        environment:  
+            SA_PASSWORD: "Struggle@123"
+            ACCEPT_EULA: "Y"
+    web:
+        build: .
+        ports:
+            - "9091:9090"
+        depends_on:
+            - db
+    
